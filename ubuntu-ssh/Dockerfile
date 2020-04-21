@@ -7,9 +7,10 @@ ENV USER=forsrc
 ENV PASSWD=forsrc
 RUN apt-get update
 RUN apt-get install -y sudo
-RUN useradd -m $USER && \
+RUN useradd -m --shell /bin/bash $USER && \
     echo "$USER:$PASSWD" | chpasswd && \
     echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
+
 
 #RUN apt-get update
 RUN apt-get install -y vim openssh-server openssh-client
