@@ -4,13 +4,17 @@ MAINTAINER forsrc@gmail.com
 ENV DEBIAN_FRONTEND=noninteractive
 
 ENV USER=forsrc
+ENV PASSWD=forsrc
 
 RUN apt-get update
 
-RUN apt-get install -y python3-venv pipx
+RUN apt-get install -y python3-venv pipx sudo
 
 RUN apt-get clean
 
+RUN useradd -m $USER && \
+    echo "$USER:$PASSWD" | chpasswd && \
+    echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
 
 RUN echo "pipx run pyxtermjs" > /start.sh
 
