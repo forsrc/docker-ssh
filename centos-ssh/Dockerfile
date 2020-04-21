@@ -6,9 +6,10 @@ MAINTAINER forsrc
 ENV USER=forsrc
 ENV PASSWD=forsrc
 RUN yum install -y sudo
-RUN useradd -m $USER && \
+RUN useradd -m --shell /bin/bash $USER && \
     echo "$USER:$PASSWD" | chpasswd && \
     echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
+
 
 # install openssh
 RUN yum -y  install openssh-server openssh-clients
