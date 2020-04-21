@@ -10,7 +10,7 @@ ENV PORT=5000
 RUN apt-get update
 
 RUN apt-get install -y python3-venv pipx sudo
-RUN pip install pyxtermjs uwsgi gevent gevent-websocket
+RUN pip install pyxtermjs uwsgi==2.0.18 gevent gevent-websocket
 
 RUN apt-get clean
 
