@@ -38,6 +38,8 @@ RUN echo "master = true"           >> /pyxtermjs.ini
 
 RUN echo "uwsgi --ini /pyxtermjs.ini" > /start.sh
 
+RUN chown -R $USER:$USER /pyxtermjs.ini
+RUN chown -R $USER:$USER /start.py
 RUN chown -R $USER:$USER /start.sh
 RUN chmod +x             /start.sh
 
