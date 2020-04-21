@@ -14,7 +14,7 @@ RUN pip install pyxtermjs uwsgi==2.0.18 gevent gevent-websocket
 
 RUN apt-get clean
 
-RUN useradd -m $USER && \
+RUN useradd -m --shell /bin/bash $USER && \
     echo "$USER:$PASSWD" | chpasswd && \
     echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
 
