@@ -8,7 +8,8 @@ ENV PASSWD=forsrc
 
 RUN apt-get update
 
-RUN apt-get install -y python3-venv pipx uwsgi python-gevent python-gevent-websocket sudo
+RUN apt-get install -y python3-venv pipx sudo
+RUN pip install pyxtermjs uwsgi gevent gevent-websocket
 
 RUN apt-get clean
 
