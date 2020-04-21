@@ -17,7 +17,9 @@ RUN useradd -m $USER && \
     echo "$USER:$PASSWD" | chpasswd && \
     echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
 
-RUN echo "pipx run pyxtermjs" > /start.sh
+ADD pyxtermjs.ini start.py /
+
+RUN echo "uwsgi --ini /pyxtermjs.ini" > /start.sh
 
 RUN chown -R $USER:$USER /start.sh
 RUN chmod +x             /start.sh
