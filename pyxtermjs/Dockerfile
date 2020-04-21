@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3.6.10
 MAINTAINER forsrc@gmail.com
 
 ENV DEBIAN_FRONTEND=noninteractive
