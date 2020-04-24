@@ -4,7 +4,7 @@ MAINTAINER forsrc <forsrc@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV USER=forsrc
-ENV PASSWD=forsrc
+ARG PASSWD=forsrc
 RUN apt-get update
 RUN apt-get install -y sudo
 RUN useradd -m --shell /bin/bash $USER && \
