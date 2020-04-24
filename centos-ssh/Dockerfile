@@ -4,7 +4,7 @@ FROM centos:7
 MAINTAINER forsrc
 
 ENV USER=forsrc
-ENV PASSWD=forsrc
+ARG PASSWD=forsrc
 RUN yum install -y sudo
 RUN useradd -m --shell /bin/bash $USER && \
     echo "$USER:$PASSWD" | chpasswd && \
